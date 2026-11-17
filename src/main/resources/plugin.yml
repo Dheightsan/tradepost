@@ -1,0 +1,35 @@
+name: Tradepost
+version: '${version}'
+main: io.github.dheightsan.tradepost.TradepostPlugin
+api-version: '1.21'
+description: Chest-menu shop with supply and demand pricing.
+authors: [Dheightsan]
+softdepend: [Vault, PlaceholderAPI]
+
+commands:
+  shop:
+    description: Open the shop, or manage it.
+    usage: /shop [category | price <item> | history | reload]
+    aliases: [market]
+
+permissions:
+  tradepost.use:
+    description: Open the shop and trade.
+    default: true
+  tradepost.price:
+    description: Check an item's current price with /shop price.
+    default: true
+  tradepost.history:
+    description: See your last trades with /shop history.
+    default: true
+  tradepost.reload:
+    description: Reload config.yml and messages.yml.
+    default: op
+  tradepost.admin:
+    description: Every Tradepost permission.
+    default: op
+    children:
+      tradepost.use: true
+      tradepost.price: true
+      tradepost.history: true
+      tradepost.reload: true

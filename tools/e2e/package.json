@@ -1,0 +1,11 @@
+{
+  "name": "tradepost-e2e",
+  "private": true,
+  "description": "Headless client that clicks through the shop menu on a local test server.",
+  "scripts": {
+    "bot": "node bot.js"
+  },
+  "dependencies": {
+    "mineflayer": "4.39.0"
+  }
+}

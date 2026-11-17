@@ -1,0 +1,15 @@
+name: TestEconomy
+version: '1.0.0'
+main: io.github.dheightsan.testeconomy.TestEconomyPlugin
+api-version: '1.21'
+description: In-memory Vault economy for local testing. Balances are saved to balances.yml.
+depend: [Vault]
+load: STARTUP
+commands:
+  testbalance:
+    description: Show or set a test balance.
+    usage: /testbalance <player> [amount]
+    permission: testeconomy.admin
+permissions:
+  testeconomy.admin:
+    default: op

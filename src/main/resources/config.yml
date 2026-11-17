@@ -1,0 +1,98 @@
+# Tradepost configuration
+# Text fields use MiniMessage: https://docs.advntr.dev/minimessage/format.html
+# /shop reload applies everything in this file except the storage section, which needs a restart.
+
+storage:
+  # sqlite (a file in the plugin folder, nothing to set up) or mysql (also works with MariaDB)
+  type: sqlite
+  table-prefix: tradepost_
+  sqlite:
+    file: shop.db
+  mysql:
+    host: localhost
+    port: 3306
+    database: minecraft
+    username: minecraft
+    password: ""
+    pool-size: 4
+    connection-timeout-ms: 10000
+    # Extra JDBC properties, passed to the driver as they are.
+    properties:
+      useSSL: false
+      characterEncoding: utf8
+
+# price moves by `step` per unit, items can override this or use dynamic: false
+pricing:
+  enabled: true
+  step: 0.004
+  min-multiplier: 0.5
+  max-multiplier: 2.0
+  recovery-half-life-minutes: 30
+
+menu:
+  title: "<dark_gray>Shop"
+  rows: 3
+
+# item ids must be unique. keep sell well below buy or ppl can loop trades for money
+categories:
+  blocks:
+    title: "<green>Building Blocks"
+    icon: BRICKS
+    slot: 10
+    items:
+      oak_log: { buy: 6.0, sell: 1.5 }
+      spruce_log: { buy: 6.0, sell: 1.5 }
+      cobblestone: { buy: 1.0, sell: 0.2 }
+      stone_bricks: { buy: 3.0, sell: 0.6 }
+      glass: { buy: 4.0, sell: 0.8 }
+      white_wool: { buy: 5.0, sell: 1.0 }
+      quartz_block: { buy: 24.0, sell: 6.0 }
+
+  farming:
+    title: "<yellow>Farming"
+    icon: WHEAT
+    slot: 12
+    items:
+      wheat: { buy: 3.0, sell: 1.0 }
+      carrot: { buy: 3.0, sell: 1.0 }
+      potato: { buy: 3.0, sell: 1.0 }
+      pumpkin: { buy: 8.0, sell: 2.5 }
+      sugar_cane: { buy: 4.0, sell: 1.2 }
+      bread: { buy: 6.0 }
+      bone_meal: { buy: 2.0, sell: 0.5 }
+
+  ores:
+    title: "<aqua>Ores and Gems"
+    icon: DIAMOND
+    slot: 14
+    items:
+      coal: { buy: 8.0, sell: 2.0 }
+      iron_ingot: { buy: 25.0, sell: 8.0 }
+      gold_ingot: { buy: 40.0, sell: 12.0 }
+      redstone: { buy: 6.0, sell: 1.5 }
+      lapis_lazuli: { buy: 10.0, sell: 3.0 }
+      emerald: { buy: 120.0, sell: 35.0 }
+      diamond:
+        buy: 300.0
+        sell: 90.0
+        # Rare items: move faster, but recover sooner too.
+        pricing:
+          step: 0.01
+          min-multiplier: 0.6
+          max-multiplier: 3.0
+          recovery-half-life-minutes: 20
+
+  mob_drops:
+    title: "<red>Mob Drops"
+    icon: BONE
+    slot: 16
+    items:
+      rotten_flesh: { sell: 0.3 }
+      bone: { sell: 1.0 }
+      string: { sell: 1.0 }
+      gunpowder: { sell: 4.0 }
+      ender_pearl: { buy: 60.0, sell: 15.0 }
+      name_tag:
+        name: "<gold>Name Tag"
+        buy: 250.0
+        dynamic: false

@@ -1,0 +1,67 @@
+# Tradepost messages, in MiniMessage: https://docs.advntr.dev/minimessage/format.html
+# Set a chat message to "" to hide it. Missing keys fall back to the built-in text.
+
+prefix: "<dark_gray>[<gold>Shop</gold>]</dark_gray> "
+
+no-permission: "<red>You don't have permission to do that."
+players-only: "<red>Only players can use this."
+loading: "<yellow>The shop is still loading, try again in a moment."
+economy-disabled: "<red>Trading is disabled: the server has no economy set up."
+unknown-category: "<red>There is no category called <white><input></white>."
+unknown-item: "<red>There is no item called <white><input></white>."
+price-info: "<white><item></white><gray>: buy <green><buy></green>, sell <gold><sell></gold>, <change>% from base"
+
+usage:
+  price: "<gray>Usage: <white>/shop price <item>"
+
+reload:
+  done: "<green>Reloaded: <items> items, <warnings> config warnings (see console)."
+
+trade:
+  bought: "<gray>Bought <white><amount>x <item></white> for <green><total></green>."
+  sold: "<gray>Sold <white><amount>x <item></white> for <gold><total></gold>."
+  not-enough-money: "<red>You need <total> to buy <amount>x <item>."
+  inventory-full: "<red>Your inventory has no room for <item>."
+  nothing-to-sell: "<red>You don't have any <item> to sell."
+  not-buyable: "<red>The shop doesn't sell <item>."
+  not-sellable: "<red>The shop doesn't buy <item>."
+  economy-error: "<red>The economy plugin refused the payment. Nothing was traded."
+
+history:
+  header: "<gold>Your last trades:"
+  bought: "<dark_gray><time></dark_gray> <green>+<amount></green> <white><item></white> <gray>for <total>"
+  sold: "<dark_gray><time></dark_gray> <gold>-<amount></gold> <white><item></white> <gray>for <total>"
+  empty: "<gray>You haven't traded anything yet."
+  error: "<red>Could not load your history right now."
+
+gui:
+  back: "<yellow>Back"
+  previous: "<yellow>Previous page"
+  next: "<yellow>Next page"
+  balance: "<gold>Balance: <white><balance>"
+  balance-off: "<red>Economy disabled"
+  category:
+    title: "<dark_gray><category> <gray>(<page>/<pages>)"
+    name: "<category>"
+    lore:
+      - "<gray><count> items"
+      - ""
+      - "<yellow>Click to browse"
+  trend:
+    up: "<red>(+<percent>%)"
+    down: "<green>(-<percent>%)"
+    flat: ""
+  lore:
+    name: "<white><item>"
+    buy: "<gray>Buy: <green><price></green> <trend>"
+    sell: "<gray>Sell: <gold><price></gold> <trend>"
+    no-buy: "<dark_gray>Not for sale"
+    no-sell: "<dark_gray>The shop doesn't buy this"
+    hint-buy:
+      - "<yellow>Left click</yellow> <gray>buy 1"
+      - "<yellow>Shift + left</yellow> <gray>buy <stack>"
+    hint-sell:
+      - "<yellow>Right click</yellow> <gray>sell 1"
+      - "<yellow>Shift + right</yellow> <gray>sell all"
+    economy-off:
+      - "<red>Trading is disabled on this server"
